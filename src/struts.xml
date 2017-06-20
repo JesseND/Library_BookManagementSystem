@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+<constant name="struts.devMode" value="true"/>
+<constant name="struts.i18n.encoding" value="utf-8"/>
+
+<package name="default" namespace="/" extends="struts-default">
+     <interceptors>
+        <interceptor name="loginInterceptor" class="cn.edu.nsu.interceptors.LoginInterceptor"></interceptor>
+        <interceptor name="authInterceptor" class="cn.edu.nsu.interceptors.AuthInterceptor"></interceptor>
+     </interceptors>
+     <global-allowed-methods>borrowBook, returnBook , records, myHistory, register, login, logout, myBorrowCount, getAll,modify,saveModify,del,add, getByCat,relByCat,toBooks,getSearch</global-allowed-methods>
+    
+     <action name="borrowAction" class="cn.edu.nsu.action.BorrowAction">
+        <!--<interceptor-ref name="loginInterceptor"></interceptor-ref> -->
+        <interceptor-ref name="authInterceptor"></interceptor-ref>
+         <result name="login">/register.html</result>
+	     <result name="success">/main.jsp</result>
+	     <result name="borrow">/borrow.jsp</result>
+	     <result name="return">/reload.jsp</result>
+	     <result name="bhistory">/myborrow.jsp</result>
+	     <result name="count">/main.jsp</result>
+    </action>
+    <action name="userAction" class="cn.edu.nsu.action.UserAction">       
+       <result name="register">/return.jsp</result>
+        <result name="success">/return.jsp</result>
+        <result name="login">/register.html</result>
+        <result name="adLog">/adminIndex.jsp</result>
+        <result name="log">/index.jsp</result>
+        <result name="logout">/index.jsp</result>
+    </action>
+    	<action name="adminBookAction" class="cn.edu.nsu.action.AdminBookAction">
+			<result>/adminBooks.jsp</result>
+			<result name="all">/main.jsp</result>
+			<result name="result">/result.jsp</result>
+			<result name="modify">/modify.jsp</result>
+		</action>	
+		<action name="addAction" class="cn.edu.nsu.action.AddAction">
+      		<result>/add-ok.jsp</result>
+      		<result name="input">/add.jsp</result>
+      	</action>
+      	<action name="adminBorrowAction" class="cn.edu.nsu.action.AdminBorrowAction">
+      		<result name="record">/archive.jsp</result>
+      	</action>
+      	
+    <action name="bookAction" class="cn.edu.nsu.action.MyBookAction">
+	  <result>/home.jsp</result>
+	  <result name="byCat">/bycat.jsp</result>
+	  <result name="toBooks">/books.jsp</result>
+	  <result name="toSearch">/search_result.jsp</result>	  	  
+	</action>
+	 
+	<action name="bookdetailAction" class="cn.edu.nsu.action.BookdetailAction">
+	  <result>/bookdetail.jsp</result>
+	  <result name="relByCat">/3.jsp</result> 
+	 </action>
+	 
+	 <action name="categoryAction" class="cn.edu.nsu.action.CategoryAction">
+	  <result>/cateList.jsp</result>
+	 </action>
+	 
+	  <action name="loginAction" class="cn.edu.nsu.action.LoginAction">
+	  <interceptor-ref name="loginInterceptor"></interceptor-ref>
+	  <result>/index.jsp</result>
+	  <result name="login">/account.jsp</result>
+	  <result name="logout">/index.jsp</result>
+	  
+	 </action>
+	 <action name="returnBookAction" class="cn.edu.nsu.action.ReturnBookAction">
+	  <result >/reload.jsp</result>
+	 </action>
+	 <action name="borrowBookAction" class="cn.edu.nsu.action.BorrowBookAction">
+	  <result >/return.jsp</result>
+	 </action>
+</package>
+</struts>

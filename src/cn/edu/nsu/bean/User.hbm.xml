@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="cn.edu.nsu.bean.User" table="user">
+<id name="id">
+   <generator class="increment"/>
+</id>
+<!-- if the class attribute is not same with the table field you should add column="table_field_name" -->
+<property name="name"/>
+<property name="password"/>
+<property name="sex"/>
+</class>
+
+</hibernate-mapping>

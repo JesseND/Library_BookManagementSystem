@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="cn.edu.nsu.bean.Book" table="book">
+<id name="id">
+   <generator class="increment"/>
+</id>
+<!-- if the class attribute is not same with the table field you should add column="table_field_name" -->
+<property name="bookname"/>
+<property name="author"/>
+<property name="press"/>
+<property name="presstime"/>
+<property name="price"/>
+<property name="category"/>
+<property name="isbn"/>
+<property name="bookcounts"/>
+<property name="borrowcounts"/>
+<property name="introduction"/>
+<property name="recommend"/>
+<property name="cover"/>
+</class>
+</hibernate-mapping>

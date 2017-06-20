@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+@CHARSET "UTF-8";
+table,tr{
+	border:2px solid #d8d8d8;
+	text-align:center;
+	font-size:11px;
+}
+td,th{
+	border-left:none;
+	border-right:none;
+	text-align:center;
+}
+#container{
+	width:70%;
+	margin:0 auto;
+}
+a{ 
+color:green;
+text-decoration:none; 
+}
+a:hover{
+color:orange;
+text-decoration:underline;
+}
+.btn{
+	background:white;
+	color:#7777ff;
+	border:none;
+	border-radius:5px;
+	font-size:15px;
+	margin-top:3px;
+	margin-bottom:3px;
+	cursor:pointer;
+}
+.btn:hover{
+	background:#7777ff;
+	color:white;
+	border:none;
+	border-radius:5px;
+	font-size:15px;
+	margin-top:3px;
+	margin-bottom:3px;
+	cursor:pointer;
+	
+	
+	
+}
